@@ -1,3 +1,19 @@
+export const tableHeaders = {
+  term: "Term",
+  position: "Position",
+  notional: "Notional",
+  maturity: "Maturity",
+  fixedCoupon: "Fixed Coupon(%)",
+  payRecv: "Pay/Recv",
+  dV01T1: "DV01(t-1)",
+  dV01ConvexityT1: "DV01 Convexity(t-1)",
+  diffDv01: "Diff.DV01",
+  diffConvexity: "Diff.Convexity",
+  diffDv01Per: "Diff.DV01(%)",
+  diffConvexityPer: "Diff.Convexity(%)",
+  currency: "Currency",
+};
+
 export const tableData = [
   {
     term: "2YR",
