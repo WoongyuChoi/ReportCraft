@@ -14,7 +14,7 @@ createRoot(document.getElementById("root")!).render(
         justifyContent: "center",
         padding: "20px",
         backgroundColor: "#f0f0f0",
-        fontFamily: "SpoqaHanSans",
+        fontFamily: "Pretendard",
       }}
     >
       <PDFViewer style={{ width: "100%", maxWidth: "800px", height: "90vh" }}>

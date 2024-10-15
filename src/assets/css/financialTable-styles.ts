@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
     padding: 20,
-    fontFamily: "SpoqaHanSans",
+    fontFamily: "Pretendard",
   },
   title: {
     fontSize: 32,

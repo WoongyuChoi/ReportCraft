@@ -4,7 +4,9 @@ import {
   tableData,
   tableHeaders,
 } from "../assets/data/financialTable-data";
-import { autoLineBreak } from "../utils/autoLineBreak"; 
+import { autoLineBreak } from "../utils/autoLineBreak";
+import Header from './Header';
+import Footer from './Footer';
 import "../assets/fonts";
 
 // PDF 컴포넌트
@@ -13,7 +15,9 @@ const FinancialTableReport = () => {
 
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
+      <Page size="A4" style={styles.page} wrap>
+        <Header /> {/* 헤더 추가 */}
+
         <Text style={styles.title}>Asset IRS DV01 Report</Text>
 
         {/* 테이블 */}
@@ -53,7 +57,12 @@ const FinancialTableReport = () => {
             <Text style={styles.rowCell}>{autoLineBreak(data.diffConvexityPer, numColumns)}</Text>
             <Text style={styles.rowCell}>{autoLineBreak(data.currency, numColumns)}</Text>
           </View>
-        ))}
+        ))}        
+
+        <Text render={({ pageNumber, totalPages }) => (
+          <Footer pageNumber={pageNumber} totalPages={totalPages} />
+        )} fixed/>
+        
       </Page>
     </Document>
   );
