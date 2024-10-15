@@ -1,10 +1,4 @@
-import {
-  Document,
-  Image,
-  Page,
-  Text,
-  View
-} from "@react-pdf/renderer";
+import { Document, Image, Page, Text, View } from "@react-pdf/renderer";
 import Chart from "chart.js/auto";
 import { useEffect, useState } from "react";
 import styles from "../assets/css/financial-styles";
@@ -104,7 +98,9 @@ const FinancialReport = () => {
             </View>
           ))}
         </View>
+      </Page>
 
+      <Page>
         {/* 도넛 차트 이미지 */}
         {imageSrc && (
           <View style={styles.chartSection}>
