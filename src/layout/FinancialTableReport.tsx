@@ -7,7 +7,7 @@ import {
 import { autoLineBreak } from "../utils/autoLineBreak";
 import Header from './Header';
 import Footer from './Footer';
-import "../assets/fonts";
+import "../assets/fonts/ttf-fonts";
 
 // PDF 컴포넌트
 const FinancialTableReport = () => {

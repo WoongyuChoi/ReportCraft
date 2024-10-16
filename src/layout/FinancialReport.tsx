@@ -9,7 +9,7 @@ import Chart from "chart.js/auto";
 import { useEffect, useState } from "react";
 import styles from "../assets/css/financial-styles";
 import { monthlyData } from "../assets/data/financial-data";
-import "../assets/fonts";
+import "../assets/fonts/ttf-fonts";
 
 // 도넛 차트 이미지 생성 함수
 const generateChartImage = (): Promise<string | null> => {
