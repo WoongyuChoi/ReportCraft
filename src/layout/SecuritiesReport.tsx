@@ -1,6 +1,6 @@
 import { Document, Page, Text, View } from "@react-pdf/renderer";
 import React from "react";
-import { Report } from "../common/Report";
+import { ColumnHeader, Report, REPORT_TYPE, SubTable } from "../common/Report";
 import { getTimeStamp, getTodayDate } from "../utils/dateUtils";
 import Header from "./Header";
 
@@ -13,6 +13,59 @@ const SecuritiesReport = ({
   version?: string;
   reports?: Report[];
 }) => {
+  const getReport = (report: Report) => {
+    switch (report?.type) {
+      case REPORT_TYPE.TITLE_TABLE:
+        return (
+          <TitleTable
+            title={report?.title}
+            columns={report?.columns}
+            rows={report?.rows}
+            newPage={report?.newPage}
+          />
+        );
+      case REPORT_TYPE.TITLE_SUB_TABLES:
+        return (
+          <TitleSubTables
+            title={report?.title}
+            columns={report?.columns}
+            subTables={report?.subTables}
+            newPage={report?.newPage}
+          />
+        );
+      default:
+        break;
+    }
+  };
+
+  const TitleTable = ({
+    title,
+    columns,
+    rows,
+    newPage = false,
+  }: {
+    title: string;
+    columns: ColumnHeader[];
+    rows: string[][];
+    newPage?: boolean;
+  }) => {
+    return <div></div>;
+  };
+
+  const TitleSubTables = ({
+    title,
+    columns,
+    subTables,
+    newPage = false,
+  }: {
+    title: string;
+    columns: ColumnHeader[];
+    subTables: SubTable[];
+    newPage?: boolean;
+  }) => {
+    return <div></div>;
+  };
+
   return (
     <Document title={title}>
       <Page size="A4" orientation="portrait" style={{ paddingBottom: "100px" }}>
@@ -38,7 +91,7 @@ const SecuritiesReport = ({
         )}
 
         {reports?.map((report: Report, index: number) => (
-          <React.Fragment key={index}>{}</React.Fragment>
+          <React.Fragment key={index}>{getReport(report)}</React.Fragment>
         ))}
 
         <View
