@@ -1,5 +1,5 @@
 import { PDFViewer } from "@react-pdf/renderer";
-import FinancialTableReport from "./FinancialTableReport";
+import SecuritiesReport from "./SecuritiesReport";
 
 const MainLayout = () => {
   return (
@@ -15,7 +15,7 @@ const MainLayout = () => {
       }}
     >
       <PDFViewer style={{ width: "100%", height: "100%" }}>
-        <FinancialTableReport />
+        <SecuritiesReport title={"Securities Report"} version={"v1.0.0"} />
       </PDFViewer>
     </div>
   );

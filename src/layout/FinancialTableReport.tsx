@@ -3,11 +3,10 @@ import styles from "../assets/css/financialTable-styles";
 import {
   tableData,
   tableHeaders,
-} from "../assets/data/financialTable-data";
+} from "../data/financialTable-data";
 import { autoLineBreak } from "../utils/autoLineBreak";
 import Header from './Header';
 import Footer from './Footer';
-import "../assets/fonts/ttf-fonts";
 
 // PDF 컴포넌트
 const FinancialTableReport = () => {
