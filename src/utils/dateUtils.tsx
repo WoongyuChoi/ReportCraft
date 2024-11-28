@@ -9,3 +9,10 @@ export const getTodayDate = (): string => {
 export const getTimeStamp = (): string => {
   return new Date().toISOString().replace("T", " ").split(".")[0];
 };
+
+export const generateRandomDate = (start: Date, end: Date): string => {
+  const randomTime =
+    start.getTime() + Math.random() * (end.getTime() - start.getTime());
+  const randomDate = new Date(randomTime);
+  return randomDate.toISOString().split("T")[0];
+};
