@@ -1,38 +1,71 @@
-# React Report
+# ReportCraft
 
-This project, **React Report**, is built with React, TypeScript, and Vite. It uses the `@react-pdf/renderer` library to generate and display PDFs directly in the application.
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=fff&labelColor=grey&color=62d9fb)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/WoongyuChoi/ReportCraft/blob/main/LICENSE)
+![Platform](https://img.shields.io/badge/platform-web-blue)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/WoongyuChoi/ReportCraft)
 
-## Key Features
+<figure align="center">
+    <img src="https://github.com/user-attachments/assets/7895d3ae-2dd7-47d5-b935-b5afafc36519" width="80%"/>
+</figure>
 
-- **PDF Generation**: Create PDF reports dynamically using React components as templates.
-- **In-App PDF Viewing**: Display generated PDFs within the application.
+## Overview
 
-## Installation
+**ReportCraft** is a project for generating dynamic PDFs using React, TypeScript, and the `@react-pdf/renderer` library. It is designed to streamline the creation of professional and customizable reports.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/WoongyuChoi/react-report.git
-   cd react-report
-   ```
+## Features
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: Strongly typed superset of JavaScript for safer code.
+- **Vite**: Modern and fast build tool.
+- **@react-pdf/renderer**: Powerful PDF generation for React applications.
+- **BlobProvider Integration**: Enables on-the-fly PDF rendering and download functionality.
 
-3. **Start the development server**:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+## Setup
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/WoongyuChoi/ReportCraft.git
+    ```
+
+2. Navigate into the project directory:
+    ```bash
+    cd ReportCraft
+    ```
+
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+4. Start the development server:
+    ```bash
+    npm run dev
+    ```
+
+5. To build for production:
+    ```bash
+    npm run build
+    ```
 
 ## Usage
 
-1. **PDF Creation**: Utilize `@react-pdf/renderer` to construct reports. Components are rendered as PDF pages, which can be customized according to specific reporting needs.
-2. **PDF Viewing**: PDFs are displayed directly in the app, providing an in-app preview for generated documents.
+The project demonstrates how to use the `@react-pdf/renderer` library to create dynamic reports with customizable layouts, headers, and tables.
+
+Example usage:
+
+```tsx
+import { PDFViewer } from '@react-pdf/renderer';
+import FinancialReport from './layout/FinancialReport';
+
+export default function App() {
+  return (
+    <PDFViewer style={{ width: "100%", height: "90vh" }}>
+      <FinancialReport />
+    </PDFViewer>
+  );
+}
+```
 
 ## License
 
