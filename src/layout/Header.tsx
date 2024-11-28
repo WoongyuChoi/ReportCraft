@@ -1,10 +1,23 @@
-import React from "react";
 import { Text, View } from "@react-pdf/renderer";
-import headerStyles from "../assets/css/header-styles";
 
-const Header = () => (
-  <View style={headerStyles.header} fixed>
-    <Text style={headerStyles.headerText}>Asset IRS DV01 Report</Text>
+const Header = ({ title, date }: { title?: string; date?: string }) => (
+  <View
+    wrap={false}
+    style={{
+      margin: "40px 50px 15px 50px",
+      paddingBottom: "5x",
+      borderBottom: "1.5px solid #99B2CB",
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      color: "#003E7E",
+      fontSize: "9px",
+      fontFamily: "Pretendard",
+    }}
+    fixed
+  >
+    <Text>{title ? title : " "}</Text>
+    {date && <Text>Process date : {date}</Text>}
   </View>
 );
 
