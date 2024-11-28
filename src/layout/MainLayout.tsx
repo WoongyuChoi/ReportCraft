@@ -1,4 +1,5 @@
 import { PDFViewer } from "@react-pdf/renderer";
+import { reports } from "../data/SecuritiesConstant";
 import SecuritiesReport from "./SecuritiesReport";
 
 const MainLayout = () => {
@@ -15,7 +16,12 @@ const MainLayout = () => {
       }}
     >
       <PDFViewer style={{ width: "100%", height: "100%" }}>
-        <SecuritiesReport title={"Securities Report"} version={"v1.0.0"} />
+        <SecuritiesReport
+          title={"Securities Report"}
+          subTitle={"The Clock of Normalization is Running Well..."}
+          version={"v1.0.0"}
+          reports={reports}
+        />
       </PDFViewer>
     </div>
   );
