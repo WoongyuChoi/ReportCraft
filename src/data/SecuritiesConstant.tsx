@@ -1,4 +1,5 @@
 import { ColumnAlign, ColumnType, REPORT_TYPE, Report } from "../common/Report";
+import { generateRandomChartData } from "../utils/chartUtils";
 import { generateRandomDate } from "../utils/dateUtils";
 import { generateRandomNumberWithCommas } from "../utils/numberUtils";
 
@@ -30,6 +31,17 @@ export const reports: Report[] = [
         generateRandomDate(new Date("2024-12-01"), new Date("2024-12-31")),
       ],
     ],
+  },
+  {
+    type: REPORT_TYPE.TITLE_CHART,
+    ...generateRandomChartData(
+      "bar",
+      12,
+      "Market Overview",
+      "Revenue",
+      100,
+      1000
+    ),
   },
   {
     type: REPORT_TYPE.TITLE_TABLE,
