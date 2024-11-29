@@ -6,7 +6,7 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/WoongyuChoi/ReportCraft)
 
 <figure align="center">
-    <img src="https://github.com/user-attachments/assets/7895d3ae-2dd7-47d5-b935-b5afafc36519" width="80%"/>
+    <img src="https://github.com/user-attachments/assets/27798537-b7a5-4fbf-90dc-dc3ed199ea21" width="80%"/>
 </figure>
 
 ## Overview
