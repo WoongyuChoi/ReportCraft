@@ -1,6 +1,13 @@
-import { Document, Page, Text, View } from "@react-pdf/renderer";
-import React from "react";
-import { ColumnHeader, Report, REPORT_TYPE, SubTable } from "../common/Report";
+import { Document, Image, Page, Text, View } from "@react-pdf/renderer";
+import { Chart } from "chart.js";
+import React, { useEffect, useState } from "react";
+import {
+  ColumnHeader,
+  Report,
+  REPORT_TYPE,
+  SubTable,
+  TitleChartType,
+} from "../common/Report";
 import { getTimeStamp, getTodayDate } from "../utils/dateUtils";
 import Header from "./Header";
 
@@ -35,9 +42,115 @@ const SecuritiesReport = ({
             newPage={report?.newPage}
           />
         );
+      case REPORT_TYPE.TITLE_CHART:
+        return <TitleChart report={report} newPage={report?.newPage} />;
       default:
         break;
     }
+  };
+
+  const TitleChart = ({
+    report,
+    newPage,
+  }: {
+    report: TitleChartType;
+    newPage?: boolean;
+  }) => {
+    const [chartUrl, setChartUrl] = useState<string | null>(null);
+
+    const generateChartImage = async (): Promise<string | null> => {
+      return new Promise((resolve, reject) => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 400;
+        canvas.height = 250;
+        const ctx = canvas.getContext("2d");
+
+        if (!ctx) {
+          resolve(null);
+          return;
+        }
+
+        const chartInstance = new Chart(ctx, {
+          type: report?.chartType,
+          data: {
+            labels: report?.labels,
+            datasets: report?.datasets,
+          },
+          options: {
+            responsive: false,
+            plugins: {
+              legend: {
+                display: true,
+                position: "top",
+                labels: {
+                  font: {
+                    family: "Pretendard",
+                    size: 12,
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                beginAtZero: true,
+                ticks: {
+                  font: {
+                    family: "Pretendard",
+                    size: 10,
+                  },
+                },
+              },
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  font: {
+                    family: "Pretendard",
+                    size: 10,
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        setTimeout(() => {
+          const imageURL = canvas?.toDataURL("image/png");
+          chartInstance.destroy();
+          resolve(imageURL);
+        }, 100);
+      });
+    };
+
+    useEffect(() => {
+      (async () => {
+        const imageUrl = await generateChartImage();
+        if (imageUrl) {
+          setChartUrl(imageUrl);
+        }
+      })();
+    }, [report]);
+
+    return (
+      <>
+        {chartUrl && (
+          <View
+            break={newPage}
+            style={{
+              margin: "0px 60px 20px 60px",
+              padding: "30px",
+            }}
+          >
+            <Image
+              src={chartUrl}
+              style={{
+                width: "400px",
+                height: "250px",
+              }}
+            />
+          </View>
+        )}
+      </>
+    );
   };
 
   const TitleTable = ({

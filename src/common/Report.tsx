@@ -1,3 +1,5 @@
+import { ChartType } from "chart.js";
+
 export interface ColumnHeader {
   type: ColumnType;
   headerName: string;
@@ -12,7 +14,7 @@ export enum ColumnAlign {
 
 export enum ColumnType {
   TEXT,
-  NuMBER,
+  NUMBER,
   DATE,
   PERCENT,
 }
@@ -20,6 +22,7 @@ export enum ColumnType {
 export enum REPORT_TYPE {
   TITLE_TABLE = "TITLE_TABLE",
   TITLE_SUB_TABLES = "TITLE_SUB_TABLES",
+  TITLE_CHART = "TITLE_CHART",
 }
 
 export interface TitleTableType {
@@ -43,4 +46,20 @@ export interface SubTable {
   rows: string[][];
 }
 
-export type Report = TitleTableType | TitleSubTableType;
+export interface TitleChartType {
+  type: typeof REPORT_TYPE.TITLE_CHART;
+  chartType: ChartType;
+  labels: string[];
+  datasets: Dataset[];
+  newPage?: boolean;
+}
+
+export interface Dataset {
+  label: string;
+  data: number[];
+  backgroundColor?: string[];
+  borderColor?: string[];
+  borderWidth?: number;
+}
+
+export type Report = TitleTableType | TitleSubTableType | TitleChartType;
