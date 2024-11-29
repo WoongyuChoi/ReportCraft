@@ -4,7 +4,7 @@ const Header = ({ title, date }: { title?: string; date?: string }) => (
   <View
     wrap={false}
     style={{
-      margin: "40px 50px 15px 50px",
+      margin: "40px 60px 15px 60px",
       paddingBottom: "5x",
       borderBottom: "1.5px solid #99B2CB",
       display: "flex",
