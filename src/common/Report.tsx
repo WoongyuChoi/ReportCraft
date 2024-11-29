@@ -12,7 +12,7 @@ export enum ColumnAlign {
 
 export enum ColumnType {
   TEXT,
-  NuMBER,
+  NUMBER,
   DATE,
   PERCENT,
 }

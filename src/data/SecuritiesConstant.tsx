@@ -1,6 +1,6 @@
 import { ColumnAlign, ColumnType, REPORT_TYPE, Report } from "../common/Report";
 import { generateRandomDate } from "../utils/dateUtils";
-import { generateRandomNumberWithCommas } from "../utils/numbeUtils";
+import { generateRandomNumberWithCommas } from "../utils/numberUtils";
 
 export const reports: Report[] = [
   {
